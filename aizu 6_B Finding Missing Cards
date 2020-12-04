@@ -1,0 +1,32 @@
+number = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+mark = ['S','H','C','D']
+number_1 = []
+mark_1 = []
+i = 0
+k = 0
+
+n = int(input())
+
+while i < n:
+    table = input().split()
+    number_1.append(table[0])
+    mark_1.append(table[1])
+    i += 1
+print()
+
+i = 0
+
+while k < n:
+    for i in range(0,4):
+        for j in range(0,13):
+            if mark_1[k] == 'S' and number[i]:
+                if number_1[k] != nuber[i]:
+                    print("S {0}".format(j))
+                    k += 1
+            if mark_1[k] == 'H':
+                if number_1[k] != nuber[i]:
+                    k += 1
+
+i = 0
+j = 0
+                        
