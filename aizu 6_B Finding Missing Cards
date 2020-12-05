@@ -1,32 +1,44 @@
-number = [1,2,3,4,5,6,7,8,9,10,11,12,13]
-mark = ['S','H','C','D']
-number_1 = []
-mark_1 = []
+input_number_S = []
+input_mark_S = []
+input_number_H = []
+input_mark_H = []
+input_number_C = []
+input_mark_C = []
+input_number_D = []
+input_mark_D = []
+
 i = 0
-k = 0
 
 n = int(input())
 
 while i < n:
     table = input().split()
-    number_1.append(table[0])
-    mark_1.append(table[1])
+    if table[0] == "S":
+        input_number_S.append(int(table[1]))
+    elif table[0] == "H":
+        input_number_H.append(int(table[1]))
+    elif table[0] == "C":
+        input_number_C.append(int(table[1]))
+    else:
+        input_number_D.append(int(table[1]))
     i += 1
-print()
 
-i = 0
+# 入力数値をlistからintに変換
+input_number_S = list(map(int,input_number_S))
+input_number_H = list(map(int,input_number_H))
+input_number_C = list(map(int,input_number_C))
+input_number_D = list(map(int,input_number_D))
 
-while k < n:
-    for i in range(0,4):
-        for j in range(0,13):
-            if mark_1[k] == 'S' and number[i]:
-                if number_1[k] != nuber[i]:
-                    print("S {0}".format(j))
-                    k += 1
-            if mark_1[k] == 'H':
-                if number_1[k] != nuber[i]:
-                    k += 1
-
-i = 0
-j = 0
-                        
+#for i in range(0,len(input_number)):
+for j in range(1,14):
+    if input_number_S.count(j) == 0:
+        print("S",j)
+for j in range(1,14):
+    if input_number_H.count(j) == 0:
+        print("H",j)
+for j in range(1,14):
+    if input_number_C.count(j) == 0:
+        print("C",j)
+for j in range(1,14):
+    if input_number_D.count(j) == 0:
+        print("D",j)
