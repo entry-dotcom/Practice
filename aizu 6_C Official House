@@ -1,0 +1,43 @@
+list = []
+mylist = []
+base_list = []
+floor_list = []
+room_list = []
+number_list = []
+
+# すべての棟と部屋を配列で作成
+for i in range(12):
+    sublist = []
+    for j in range(10):
+        sublist.append(0)
+    mylist.append(sublist)
+
+#　入力(numberは負もあり)
+count = 0
+n = int(input())
+while count < n:
+    base,floor,room,number = map(int,input().split())
+    base_list.append(base)
+    floor_list.append(floor)
+    room_list.append(room)
+    number_list.append(number)
+    count += 1
+print(mylist)
+# 計算
+count = 0
+for count in range (0,len(base_list)):
+    if base_list[count] == 1:
+        mylist[floor_list[count]-1][room_list[count]-1] += number_list[count] 
+    elif base_list[count] == 2:
+        mylist[floor_list[count]+2][room_list[count]-1] += number_list[count]
+    elif base_list[count] == 3:
+        mylist[floor_list[count]+5][room_list[count]-1] += number_list[count]
+    else:
+        mylist[floor_list[count]+8][room_list[count]-1] += number_list[count]
+
+for i in range(0,12):
+    if i == 3 or i == 6 or i == 9:
+        print("#"*20)
+    for j in range(0,10):
+        print(" %d"%(mylist[i][j]),end = "")
+    print()    
