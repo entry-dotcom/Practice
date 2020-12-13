@@ -1,0 +1,36 @@
+m_list = []
+f_list = []
+r_list = []
+i = 0
+
+# 入力
+while i <= 51:
+    m,f,r = map(int,input().split())#int(input().split())
+    m_list.append(m)
+    f_list.append(f)
+    r_list.append(r)
+    if m_list[i] == -1 and f_list[i] == -1 and r_list[i] == -1:
+        break
+    i += 1
+    
+# 計算
+for i in range(len(m_list)):
+    if m_list[i] == -1 and f_list[i] == -1 and r_list[i] == -1:
+        break
+    if m_list[i] == -1 or f_list[i] == -1:
+        print('F')
+        continue
+    if m_list[i] + f_list[i] >= 80:
+        print('A')
+    if 65 <= m_list[i] + f_list[i] < 80:
+        print('B')
+    if 50 <= m_list[i] + f_list[i] < 65:
+        print('C')
+    if 30 <= m_list[i] + f_list[i] < 50:
+        if r_list[i] >= 50:
+            print('C')
+        else:
+            print('D')
+    elif m_list[i] + f_list[i] < 30:
+        print('F')
+    i += 1
