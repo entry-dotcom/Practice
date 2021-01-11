@@ -1,3 +1,4 @@
+# #--------------------------------------------------で区切られているソースコードを順次実行する
 #--------------------------------------------------
 import numpy as np
 import numpy.random as random
@@ -16,21 +17,21 @@ import seaborn as sns
 
 
 #--------------------------------------------------
+#データの保存してあるディレクトリへ移動
+cd ./chap3
+
+
+#--------------------------------------------------
 import six
 import sys
 sys.modules['sklearn.externals.six'] = six
-#import mlrose
 # https://www.it-swarm-ja.tech/ja/python/python%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%9A-%27sklearnexternals%27%E3%81%8B%E3%82%89%E5%90%8D%E5%89%8D-%27six%27%E3%82%92%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%9B%E3%82%93/816560837/
-# 上記のサイトを用いた
-
+# 上記のサイトを参考にした．
 
 #--------------------------------------------------
 # キノコモデル（ここから実行する）
 # キノコ（課題）
-url = 'http://archive.ics.uci.edu/m1/machine-learning-databases/mushroom/agaricus-lepiota.data'
-res = requests.get(url).content
-
-#mushroom = pd.read_csv(io.StringIO(res.decode('utf-8')),header=None)
+# 教科書に記載されていたURLからの読み込みがうまくできなかったので，直接データをダウンロードして使用した．
 mushroom = pd.read_csv('agaricus-lepiota.data')
 
 # データの列にラベルを設定
@@ -158,9 +159,8 @@ print('正答率(test):{:.3f}'.format(model.score(X_test,y_test)))
 
 
 #--------------------------------------------------
-# これはうまくいっていない
 # 参考プログラム
-# pydotplusやgraphvizをインストールする必要がある．(本書ではインストールの解説は無し)
+# pydotplusやgraphvizの具体的な環境構築の方法は省略
 from graphviz import Digraph
 from sklearn import tree
 import pydotplus
