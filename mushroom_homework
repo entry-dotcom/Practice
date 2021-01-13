@@ -17,19 +17,18 @@ import seaborn as sns
 
 
 #--------------------------------------------------
-#データを保存してあるディレクトリへ移動
-cd ./chap3
-
-
-#--------------------------------------------------
 import six
 import sys
 sys.modules['sklearn.externals.six'] = six
 # https://www.it-swarm-ja.tech/ja/python/python%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%9A-%27sklearnexternals%27%E3%81%8B%E3%82%89%E5%90%8D%E5%89%8D-%27six%27%E3%82%92%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%9B%E3%82%93/816560837/
 # 上記のサイトを参考にした．
 
+
 #--------------------------------------------------
-# 教科書に記載されていたURLからの読み込みがうまくできなかったので，直接データをダウンロードして使用した．
+# データの取得
+url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data'
+res = requests.get(url).content
+# 取得したデータをDataFrameオブジェクトとして読み込み
 mushroom = pd.read_csv('agaricus-lepiota.data')
 
 # データの列にラベルを設定
